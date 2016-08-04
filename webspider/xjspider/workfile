@@ -1,0 +1,24 @@
+import cookielib
+import urllib2
+import urllib
+
+postdata=urllib.urlencode(
+    {'username':'lz123456',
+    'password':'lll3.1415926'}
+)
+
+req=urllib2.Request(
+    url='http://www.zhihu.com/',
+  #  data=postdata
+)
+req.add_header('User-Agent', 'Mozilla/6.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/8.0 Mobile/10A5376e Safari/8536.25')
+
+cookie=cookielib.CookieJar()
+opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
+result=opener.open(req)
+
+print result.read()
+'''
+https://cas.xjtu.edu.cn/login?service=http%3A%2F%2Fssfw.xjtu.edu.cn%2Findex.portal
+https://cas.xjtu.edu.cn/login?service=http%3A%2F%2Fssfw.xjtu.edu.cn%2Findex.portal
+'''
